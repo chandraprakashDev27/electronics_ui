@@ -1,0 +1,38 @@
+/* styles.css */
+
+body {
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar-heading{
+  margin-top: 10px;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  transition: margin .25s ease-out;
+}
+
+#root.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+      margin-left: 0;
+  }
+
+  #root.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+  }
+}

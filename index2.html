@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File upload Programe</title>
+</head>
+<body>
+    <div style="width: 40%;margin: auto;margin-top: 150px;border: 1px solid black;padding: 100px;">
+        <input type="file" style="width: 50%;">
+        <br>
+        <img src="" alt="" width="300">
+    </div>
+
+    <script>
+
+        const defaultImage = "https://kripson.com/wp-content/uploads/2020/12/product-placeholder.jpg";
+        const fileInput    =  document.querySelector('input');
+        const image        =  document.querySelector('img');
+
+        image.src = defaultImage;
+
+        function renderUploadedFile(){
+            let uploadedFileObj = fileInput.files[0];
+            const reader        = new FileReader();
+            
+            reader.onload = function(fileEvent){
+                image.src = fileEvent.target.result;
+            };
+            reader.readAsDataURL(uploadedFileObj)
+        }
+
+
+        fileInput.addEventListener('change',renderUploadedFile);
+
+    </script>
+</body>
+</html>
